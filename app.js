@@ -78,14 +78,7 @@ app.post('/addproduct', (req, res) => {
 
 
 app.get('/user/:id',(req,res)=>{
-    connection.query((err,result)=>{
-        if (err) {
-            console.error(first)
-        }else{
-            console.log(`User with the with id`)
-        }
-
-    })
+   
 })
 
 app.listen(port,()=>{
