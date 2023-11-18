@@ -1,8 +1,10 @@
-const userDataInsertion = `
-    INSERT INTO users (username, email) VALUES
-    ('user1', 'user1@example.com'),
-    ('user2', 'user2@example.com'),
-    ('user3', 'user3@example.com')
-`
-
+const userDataInsertion = (userData)=>{
+    const { username, email } = userData;
+    const query = `
+      INSERT INTO users (username, email) VALUES
+      ('${username}', '${email}')
+    `;
+    return query;
+}
+    
 module.exports = userDataInsertion
