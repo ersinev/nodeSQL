@@ -77,7 +77,27 @@ app.post('/addproduct', (req, res) => {
 });
 
 
-
+// app.get('/user/:id', (req, res) => {
+//     const userId = req.params.id;
+  
+//     // Use the getUserById function to create the SQL query string
+//     const query = getUserById(userId);
+  
+//     connection.query(query.sql, query.values, (err, result) => {
+//       if (err) {
+//         console.error('Error querying database:', err);
+//         res.status(500).send('Internal Server Error');
+//       } else {
+//         if (result.length > 0) {
+//           console.log(`User with ID ${userId}:`, result);
+//           res.status(200).json(result);
+//         } else {
+//           console.log(`User with ID ${userId} not found`);
+//           res.status(404).send('User not found');
+//         }
+//       }
+//     });
+//   });
 
 app.listen(port,()=>{
     console.log(`server is running on ${port}`)
