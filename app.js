@@ -77,9 +77,7 @@ app.post('/addproduct', (req, res) => {
 });
 
 
-app.get('/user/:id',(req,res)=>{
-   
-})
+
 
 app.listen(port,()=>{
     console.log(`server is running on ${port}`)
