@@ -1,6 +1,6 @@
-const getUserById=(id)=> `
+const getUserById=(userData)=> `
 SELECT * FROM nodesql.user
-WHERE id = ${id}
+WHERE id = ${userData.id}
 `
 
 module.exports = getUserById

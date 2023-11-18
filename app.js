@@ -47,8 +47,8 @@ connection.query(productsTableCreation, (error, result)=>{
 //INSERTING DATA
 app.post('/adduser', (req,res)=>{
     const userData = req.body
-    const query = userDataInsertion(userData)
-    connection.query(query,(insertError, insertResults)=>{
+    
+    connection.query(userDataInsertion(userData),(insertError, insertResults)=>{
         if(insertError){
             console.error('Error inserting data', insertError)
             res.status(500).send('Error inserting data')
@@ -63,20 +63,29 @@ app.post('/adduser', (req,res)=>{
 })
 
 
-app.get('/addproducts',(req,res)=>{
-    connection.query(productsDataInsertion,(err, result)=>{
+app.post('/addproduct', (req, res) => {
+    const productData = req.body;
+    connection.query(productsDataInsertion(productData), (err, result) => {
         if (err) {
-            console.error('Failed to add products', err)
-            
-       }else{
-        console.log('Products successfully added')
-       }
-    })
+            console.error('Failed to add products', err);
+            res.status(500).send('Failed to add products');
+        } else {
+            console.log('Products successfully added');
+            res.send('Products added successfully');
+        }
+    });
+});
 
-})
 
 app.get('/user/:id',(req,res)=>{
-    connection.query()
+    connection.query((err,result)=>{
+        if (err) {
+            console.error(first)
+        }else{
+            console.log(`User with the with id`)
+        }
+
+    })
 })
 
 app.listen(port,()=>{
