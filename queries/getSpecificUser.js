@@ -1,6 +1,6 @@
 const getUserById = (userId) => {
     return {
-        sql: 'SELECT * FROM nodesql.user WHERE id = ?',
+        sql: 'SELECT * FROM nodesql.users WHERE id = ?',
         values: [userId],
     };
 };
