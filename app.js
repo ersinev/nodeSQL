@@ -28,7 +28,7 @@ connection.connect((err) => {
     console.log("Connected to database");
 });
 
-// TABLE CREATION
+//-------------------------------- TABLE CREATION ------------------------------------------------
 connection.query(userTableCreation, (error, results, fields) => {
     if (error) {
         console.error('Error executing table creation query:', error);
@@ -45,7 +45,7 @@ connection.query(productsTableCreation, (error, result) => {
     }
 });
 
-// INSERTING DATA
+//---------------------------- INSERTING DATA ------------------------------------------------------
 app.post('/adduser', (req, res) => {
     const userData = req.body;
 
@@ -74,11 +74,11 @@ app.post('/addproduct', (req, res) => {
     });
 });
 
-// GET USER BY ID
+//--------------------------- GET USER BY ID ----------------------------------------------------
 app.get('/user/:id', (req, res) => {
     const userId = req.params.id;
 
-    // Use the getUserById function to create the SQL query string
+  
     const query = getUserById(userId);
 
     console.log('SQL Query:', query.sql);
