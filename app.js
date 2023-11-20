@@ -81,6 +81,9 @@ app.get('/user/:id', (req, res) => {
     // Use the getUserById function to create the SQL query string
     const query = getUserById(userId);
 
+    console.log('SQL Query:', query.sql);
+    console.log('Query Values:', query.values);
+
     connection.query(query.sql, query.values, (err, result) => {
         if (err) {
             console.error('Error querying database:', err);
